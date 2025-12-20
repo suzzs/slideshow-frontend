@@ -105,7 +105,7 @@
 
 	<Header {isLive} {setLive} />
 
-	<Slide {currentSlide} {setCurrentSlide} {isLive} />
+	<Slide {currentSlide} {setCurrentSlide} {isLive} {numSlides} />
 
 	<SlidePreview {numSlides} {currentSlide}  {setCurrentSlide} {setLive} {deletedSlides} />
 

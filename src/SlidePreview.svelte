@@ -41,7 +41,7 @@
                     <!-- svelte-ignore a11y_click_events_have_key_events -->
                     <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 
-                    <img src={"http://10.10.254.169:5678/slide" + String(slide) + ".png"} alt="Slide preview" onclick={() => {
+                    <img src={"./slide" + String(slide) + ".png"} alt="Slide preview" onclick={() => {
                         setCurrentSlide(slide);
                         setLive(false);
 
@@ -55,7 +55,7 @@
                     <!-- svelte-ignore a11y_click_events_have_key_events -->
                     <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 
-                    <img src={"http://10.10.254.169:5678/slide" + String(slide) + ".png"} alt="Slide preview" onclick={() => {
+                    <img src={"./slide" + String(slide) + ".png"} alt="Slide preview" onclick={() => {
                         setCurrentSlide(slide);
                         setLive(false);
 

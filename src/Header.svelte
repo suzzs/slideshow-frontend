@@ -26,7 +26,7 @@
 
 
     <div class="live-container">
-
+    
         {#if isLive}
         <svg class="live-icon" width= "24" height = "24" viewBox ="0 0 24 24" fill ="grey" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="12" cy="12" r="4" />
@@ -36,8 +36,9 @@
         {:else}
             <button class="go-live" onclick={() => setLive(true)}>Go Live</button>
         {/if}
+       
 
-  </div>
+    </div>
 
 
 </header>
@@ -99,10 +100,9 @@ p{
 
 .live-container{
     display:flex;
-    align-items: center;
-    
-    
+    align-items: center;    
 }
+
 
 .primary-logo{
 fill: var(--primary-logo-color);
@@ -120,4 +120,6 @@ fill: var(--primary-logo-color);
     color: white;
     font-weight: bold;
 }
+
+
 </style>

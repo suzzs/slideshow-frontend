@@ -6,7 +6,7 @@
     let animateImage = $state(false);
     
 
-    let { currentSlide, setCurrentSlide, isLive } = $props();
+    let { currentSlide, setCurrentSlide, isLive, numSlides } = $props();
 
     let initialX = 0;
 
@@ -28,11 +28,18 @@ console.log(event);
 
             if(diff > 0)
             {
-                setCurrentSlide(currentSlide-1);
+                if(currentSlide > 1)
+                {
+                    setCurrentSlide(currentSlide-1);
+                }
             }
             else
             {
-                setCurrentSlide(currentSlide+1);
+                if(currentSlide < numSlides)
+                {
+                    setCurrentSlide(currentSlide+1);
+                }
+                
             }
 
         }
@@ -67,7 +74,7 @@ console.log(event);
 
 <div class="slides">
    {#if currentSlide>0}
-    <img class={ animateImage ? "slide" : ' ' } src={"http://10.10.254.169:5678/slide" + currentSlide + ".png"} alt={"Slide " + currentSlide} onpointerdown={handlePointerDown} onpointerup={handlePointerUp} />
+    <img class={ animateImage ? "slide" : ' ' } src={"./slide" + currentSlide + ".png"} alt={"Slide " + currentSlide} onpointerdown={handlePointerDown} onpointerup={handlePointerUp} />
     {:else}
     <div class="no-slides">
         <svg width="10rem" height="10rem" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -77,6 +84,8 @@ console.log(event);
         </svg>
      </div>
     {/if}
+
+     <button class ="save" onclick={()=>{ window.print(); }}>Save as PDF</button>
 </div>
 
 <style>
@@ -95,6 +104,7 @@ console.log(event);
         padding: 1rem;
         cursor: grab;
         flex-grow: 1;
+        position: relative;
     }
     .slide{
         animation: appear 400ms ease-in-out forwards;
@@ -128,6 +138,19 @@ console.log(event);
 
     .no-slides svg path{
         fill: #2A572B;
+    }
+
+    .save{
+    background-color: #56AE5799;
+    border:none;
+    padding:0.5rem;
+    border-radius: 100vw;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+
     }
 
     
