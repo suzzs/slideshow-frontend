@@ -1,14 +1,11 @@
 <script>
     import { onMount } from "svelte";
 	
-
-	
 	import Header from "./Header.svelte";
 	import Slide from "./Slide.svelte";
 	import SlidePreview from "./SlidePreview.svelte";
 
 	let isLive = $state(true);
-
 
 	let numSlides = $state(0);
 
@@ -17,18 +14,18 @@
 	let deletedSlides = $state([]);
 
 	
-
 	function setLive(value){
-		isLive =value
+
+		isLive = value;
 	}
 
     function setCurrentSlide(value){
-        currentSlide=value;
+
+        currentSlide = value;
     }
 
 
     function handleKeyDown(event) {
-        console.log("Key pressed:", event.key, "Current slide index:", currentSlide);
 
         if (event.key === "ArrowRight")
 		{
@@ -116,11 +113,11 @@
 
 <style>
 
-	.app {
-		height: 100dvh;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		background-color: var(--primary-background);
-	}
+.app {
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: var(--primary-background);
+}
 </style>

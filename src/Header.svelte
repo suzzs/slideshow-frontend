@@ -1,12 +1,5 @@
 <script>
-    let {isLive ,setLive} = $props();
-
-    function sayHello(name)
-    {
-        alert("Hello, " + name);
-    }
-
-    
+    let { isLive ,setLive } = $props(); 
 
 </script>
 
@@ -50,20 +43,19 @@
 
 <style>
 
-    @media print{
-        .header{
-            display:none !important;
-        }
+@media print{
+
+    .header{
+        display: none !important;
     }
+}
 
 .header{
-    background-color :var(--secondary-background);
+    background-color: var(--secondary-background);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-   
-
 }
 
 .logo-container{
@@ -72,20 +64,20 @@
 }
 
 .live-icon{
-    height:24px;
+    height: 24px;
     width: 24px;
-   
+
 }
 
 .live-icon circle{
-    fill:#FF3F00DD;
+    fill: #FF3F00DD;
 
 }
 
 .title{
-        color: var(--primary-logo-color);
-        font-size: 2rem;
-        margin: 0;
+    color: var(--primary-logo-color);
+    font-size: 2rem;
+    margin: 0;
 }
 
 .logo{
@@ -94,18 +86,18 @@
 }
 
 p{
-    margin:0;
-    color:#FF3F00DD;
+    margin: 0;
+    color: #FF3F00DD;
 }
 
 .live-container{
-    display:flex;
+    display: flex;
     align-items: center;    
 }
 
 
 .primary-logo{
-fill: var(--primary-logo-color);
+    fill: var(--primary-logo-color);
 }
 
 .secondary-logo{
@@ -113,13 +105,13 @@ fill: var(--primary-logo-color);
 }
 
 .go-live{
-    border:none;
-    background-color:#FF3F0099;
-    padding:0.5rem;
+    border: none;
+    background-color: #FF3F0099;
+    padding: 0.5rem;
     border-radius: 100vw;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
-
 
 </style>

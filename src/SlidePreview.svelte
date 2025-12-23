@@ -13,11 +13,6 @@
 
     });
 
-    $effect(() => {
-    
-        console.log("Current value of numSlides prop:", numSlides);
-    });
-
     const slides = $derived(Array.from({ length: numSlides }, (_, i) =>  i+1).filter((slide) => !deletedSlides.includes(slide)));
 
   </script>
@@ -71,13 +66,14 @@
 <style>
 
 @media print{
+
     .preview{
         flex-direction: column;
-         width:100% !important;
+        width: 100% !important;
     }
 
     .preview-container{
-        width:100% !important;
+        width: 100% !important;
     }
     
     .image-container{
@@ -91,9 +87,7 @@
 
 .preview-container{
     padding: 1rem;
-    background-color:var(--secondary-background);
-
-
+    background-color: var(--secondary-background);
 }
 
 .preview{
@@ -105,15 +99,19 @@
     
 }
 
+.preview::-webkit-scrollbar {
+  display: none;
+}
+
 .image-container{
     height: 5rem;
     padding: 0.5rem;
-    border-radius:0.5rem 
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .image-container.active{
     background-color: #3EA05566;
-
 }
 
 
@@ -121,7 +119,7 @@
     flex-shrink: 0;
     object-fit: cover;
     border-radius: 0.25rem;
-    box-shadow:0 1px 2px #0000007F;
+    box-shadow: 0 1px 2px #0000007F;
     max-height: 100%;
 }
 

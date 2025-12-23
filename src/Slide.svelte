@@ -1,23 +1,20 @@
 <script>
     import { untrack } from "svelte"; 
 
+    let { currentSlide, setCurrentSlide, isLive, numSlides } = $props();
+
     const DISTANCE_THRESHOLD = 30;
 
     let animateImage = $state(false);
     
-
-    let { currentSlide, setCurrentSlide, isLive, numSlides } = $props();
-
     let initialX = 0;
 
     function handlePointerDown(event){
 
-        initialX= event.clientX;
-console.log(event);
+        initialX = event.clientX;
     }
 
     function handlePointerUp(event){
-        console.log(event); 
 
         let finalX = event.clientX;
 
@@ -91,79 +88,81 @@ console.log(event);
 <style>
 
 @media print{
-    .slides{
-        display:none !important;
 
+    .slides{
+        display: none !important;
     }
 }
 
-    .slides{
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        cursor: grab;
-        flex-grow: 1;
-        position: relative;
-    }
-    .slide{
-        animation: appear 400ms ease-in-out forwards;
-    }
+.slides{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    cursor: grab;
+    flex-grow: 1;
+    position: relative;
+}
 
-    .slides:active{
-        cursor:grabbing;
-    }
+.slide{
+    animation: appear 400ms ease-in-out forwards;
+}
 
-    img {
-        max-width: 100%;
-        max-height: 100%;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        border-radius: 8px;
-        touch-action: pinch-zoom;
-    }
+.slides:active{
+    cursor: grabbing;
+}
 
-    .no-slides{
-        height:40dvh;
-        background-color: #56AE5755;
-        flex-grow: 1;
-        border-radius: 1rem;
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2.8rem;
-        font-weight: bold;
-        text-align: center;
-        padding: 1rem;
-    }
+img{
+    max-width: 100%;
+    max-height: 70dvh;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    touch-action: pinch-zoom pan-y;
+    object-fit: contain;
+}
 
-    .no-slides svg path{
-        fill: #2A572B;
-    }
+.no-slides{
+    height: 40dvh;
+    background-color: #56AE5755;
+    flex-grow: 1;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+}
 
-    .save{
+.no-slides svg path{
+    fill: #2A572B;
+}
+
+.save{
     background-color: #56AE5799;
-    border:none;
-    padding:0.5rem;
+    border: none;
+    padding: 0.5rem;
     border-radius: 100vw;
     color: white;
     font-weight: bold;
     position: absolute;
     right: 1rem;
     bottom: 1rem;
-
-    }
+    cursor: pointer;
+}
 
     
 
-    @keyframes appear{
-        from {
-            
-            transform: scale(0.2) translateY(-100%);
-            opacity: 0;
-        }
-        to{
-            transform: scale(1) translateY(0);
-            opacity: 1;
-        }
+@keyframes appear{
+    from {
+        
+        transform: scale(0.2) translateY(-100%);
+        opacity: 0;
     }
+    to{
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
 </style>
