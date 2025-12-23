@@ -3,17 +3,12 @@
 
     let scrollingWrapper = $state(null);
 
-    let timer = null;
-
     $effect(() => {
 
         if(scrollingWrapper)
         {
-            clearTimeout(timer);
 
-            timer = setTimeout(() => {
-                scrollingWrapper.scrollIntoView({ behavior: "smooth", inline: "center"});
-            }, 1000);
+            scrollingWrapper.scrollIntoView({ behavior: "smooth", inline: "center"});
         }
 
     });
